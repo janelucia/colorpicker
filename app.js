@@ -1,4 +1,6 @@
 let colorContainerElement = document.getElementById('background-color');
+let containerClicked = false;
+let currentColor;
 
 colorContainerElement.onmousemove = (e) => {
     const x = e.clientX;
@@ -13,20 +15,20 @@ colorContainerElement.onmousemove = (e) => {
     const backgroundColor = `rgb(${red}%, ${green}%, ${blue}%)`;
     colorContainerElement.style.backgroundColor = backgroundColor;
     console.log(backgroundColor);
-    //return result;
+    currentColor = backgroundColor; //TODO don't use global variable
 }
 
 colorContainerElement.onclick = (e) => {
     const colorDiv = document.createElement('div');
     colorDiv.style.width = '20vw';
     colorDiv.style.height = '100vh';
-    colorDiv.style.backgroundColor = 'red';
-
+    colorDiv.style.display = 'flex';
+    colorDiv.style.backgroundColor = currentColor;
     document.body.appendChild(colorDiv);
     
     const rgb = document.createElement('h1');
-    rgb.style.textAlign = 'center';
-    rgb.textContent = 'rgb';
+    rgb.classList.add('rgb');
+    rgb.textContent = currentColor;
     colorDiv.appendChild(rgb);
 }
 
