@@ -33,3 +33,4 @@ colorContainerElement.onclick = (e) => {
 }
 
 //console.log(window)
+//calc: 255 * (percentNumber / 100)
